@@ -61,10 +61,10 @@ object RetryingActor {
   case class Ask[T](target: ActorRef, message: T, rate: FiniteDuration,
   maxAttempts: Int)
     case object Retry
-    
+
       case class RetryException(attempts: Int) extends Exception(s"Cannot retry
       after $attempts attempts")
-      
+
         def props[T] = Props[RetryingActor]
         }
 ```
